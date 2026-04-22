@@ -43,6 +43,15 @@ const recipes = [
     ingredients: ["Apple", "Banana", "Orange", "Grapes"],
     image: "🍓",
     rating: 5
+  },
+  {
+    id: 6,
+    name: "Buffalo Pizza",
+    description: "Spicy high protein pizza",
+    cookTime: 4,
+    ingredients: ["Chicken", "Bread", "Blue Cheese", "Sauce"],
+    image: "🍓",
+    rating: 4.3
   }
 ];
 

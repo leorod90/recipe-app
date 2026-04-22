@@ -1,12 +1,14 @@
+import { use, useState } from "react"
 import recipes from "./data/recipes"
 import SearchBar from "./components/SearchBar"
 import RecipeList from "./components/Recipe/RecipeList";
 import FavoritesSection from "./components/Favorites/FavoritesSection"
-import { useState } from "react"
+import TopRecipes from "./components/TopRecipes";
 
 function App() {
   const [favorites, setFavorites] = useState([]);
   const [search, setSearch] = useState("");
+  const [topRated, setTopRated] = useState();
 
   const toggleFavorite = (id) => {
     // Check: is this recipe already in favorites?
@@ -37,20 +39,37 @@ function App() {
 
   return (
     <div>
-      <FavoritesSection
-        favoriteRecipes={favoriteRecipes}
-        favorites={favorites}
-        toggleFavorite={toggleFavorite}
-      />
-      <SearchBar
-        search={search}
-        setSearch={setSearch}
-      />
-      <RecipeList
-        recipes={filteredRecipes}
-        favorites={favorites}
-        toggleFavorite={toggleFavorite}
-      />
+        <SearchBar
+          search={search}
+          setSearch={setSearch}
+        />
+      {/* Main Layout */}
+      <div style={{ display: "flex" }}>
+
+        {/* Left: Favorites */}
+        <div style={{ width: "30%" }}>
+          <FavoritesSection
+            favoriteRecipes={favoriteRecipes}
+            favorites={favorites}
+            toggleFavorite={toggleFavorite}
+          />
+        </div>
+
+        {/* Right Side */}
+        <div style={{ width: "70%" }}>
+
+          {/* Top 3 */}
+          <TopRecipes recipes={recipes} />
+
+          {/* All Recipes */}
+          <RecipeList
+            recipes={filteredRecipes}
+            favorites={favorites}
+            toggleFavorite={toggleFavorite}
+          />
+        </div>
+
+      </div>
     </div>
   )
 }

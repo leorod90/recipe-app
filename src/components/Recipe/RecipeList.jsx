@@ -1,12 +1,9 @@
 import RecipeCard from "./RecipeCard";
+import "./Recipe.css"
 
 function RecipeList({ recipes, favorites, toggleFavorite }) {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap"
-      }}
+    <div className="recipe-container"
     >
       {recipes.map((recipe) => (
         <RecipeCard

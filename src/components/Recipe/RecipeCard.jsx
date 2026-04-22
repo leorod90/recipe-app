@@ -20,11 +20,13 @@ function RecipeCard({ recipe, isFavorite, toggleFavorite }) {
     // }}
     >
       <h2 className="recipe-title">{recipe.name}</h2>
-      <p>{"⭐".repeat(recipe.rating)}</p>
 
-      <button onClick={() => toggleFavorite(recipe.id)}>
-        {isFavorite ? "❤️" : "🤍"}
-      </button>
+      <div className='recipe-mini-container'>
+        <p>{"⭐".repeat(recipe.rating)}</p>
+        <button onClick={() => toggleFavorite(recipe.id)}>
+          {isFavorite ? "❤️" : "🤍"}
+        </button>
+      </div>
 
 
       <p className="recipe-description">

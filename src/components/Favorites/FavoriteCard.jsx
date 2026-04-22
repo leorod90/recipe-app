@@ -1,15 +1,21 @@
-function FavoriteCard({ recipe, isFavorite, toggleFavorite }) {
+function FavoriteCard({
+  recipe,
+  isFavorite = null,
+  toggleFavorite = null
+}) {
   return (
     <div style={{
-      backgroundColor:'white'
+      backgroundColor: 'white',
+      borderRadius: 10,
+      padding: 1,
     }}>
       <h3>{recipe.name}</h3>
       <p>{recipe.image}</p>
       {/* <img src={recipe.image} alt={recipe.name} width="150" /> */}
 
-      <button onClick={() => toggleFavorite(recipe.id)}>
+     {isFavorite &&  <button onClick={() => toggleFavorite(recipe.id)}>
         {isFavorite ? "❤️" : "🤍"}
-      </button>
+      </button>}
     </div>
   );
 }

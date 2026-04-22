@@ -6,7 +6,7 @@ function FavoritesSection({
   toggleFavorite
 }) {
   return (
-    <>
+    <div>
       <h2>Favorites</h2>
 
       <div style={{
@@ -27,7 +27,7 @@ function FavoritesSection({
           <p>Favorites are empty</p>
         )}
       </div>
-    </>
+    </div>
   );
 }
 
